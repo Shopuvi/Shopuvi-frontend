@@ -7,7 +7,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { username } = await params;
-  const clean = username.replace("@", "");
+const clean = username.replace(/%40/g, "").replace(/@/g, "");
   return {
     title: `@${clean} on Shopuvi`,
     description: `Browse products from ${clean} on Shopuvi marketplace.`,
